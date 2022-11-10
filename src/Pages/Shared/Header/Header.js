@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import ReactTooltip from 'react-tooltip';
 
 const Header = () => {
+    
+    const { user, logOut } = useContext(AuthContext);
+    
+    
     return (
         <div className="bg-secondary text-white navbar bg-base-100">
+            
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -27,11 +34,31 @@ const Header = () => {
                     <li><Link to='/services'>Services</Link></li>
                     <li><Link to='/blogs'>Blogs</Link></li>
                     <li><Link to='/myreviews'>My Reviews</Link></li>
+                    {user && <li><Link to='/myreviews'>Add Service</Link></li>}
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='/login' className="btn btn-accent text-white mr-3">Login</Link>
-                <Link to='/signup' className="btn btn-accent text-white">SignUp</Link>
+                {user ? 
+
+                <>
+                        
+                        <label className="btn btn-ghost btn-circle avatar">
+                            <div data-tip={user?.email}  >
+                                <img className="w-10 rounded-full" src={
+                                    user?.photoURL ?  user?.photoURL : 'https://www.w3schools.com/howto/img_avatar.png' 
+                                } />
+                            </div>
+                        </label>
+
+                        <Link onClick={logOut} to='/login' className="btn btn-accent text-white ml-3">Logout</Link>
+                </>
+                :
+                <>
+                    <Link to='/login' className="btn btn-accent text-white mr-3">Login</Link>
+                    <Link to='/signup' className="btn btn-accent text-white">SignUp</Link>
+                </>
+            }
+                
             </div>
         </div>
     );

@@ -2,10 +2,11 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
+import { FaGoogle } from 'react-icons/fa';
 
 const SignUp = () => {
 
-    const {signUp} = useContext(AuthContext);
+    const { signUp, google } = useContext(AuthContext);
     const nav = useNavigate();
 
 
@@ -25,6 +26,22 @@ const SignUp = () => {
                 setTimeout(()=>{
                     nav('/login');
                 },1500)
+            })
+            .catch(err => {
+                console.log(err);
+                toast.error('SignUp Failed!');
+            })
+    }
+
+    const registerWithGoogle = ()=>{
+        google()
+            .then(res => {
+                const user = res.user;
+                console.log(user);
+                toast.success('SignUp Successfull!')
+                setTimeout(() => {
+                    nav('/');
+                }, 1500)
             })
             .catch(err => {
                 console.log(err);
@@ -75,6 +92,7 @@ const SignUp = () => {
 
                         <div className="form-control mt-2">
                             <button className="btn bg-secondary ">SignUp</button>
+                            <button onClick={() => { registerWithGoogle ()}} className='btn bg-red-600 mt-2 text-white text-2xl'><FaGoogle></FaGoogle></button>
                         </div>
 
                         <label className="label">

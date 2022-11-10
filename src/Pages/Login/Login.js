@@ -2,12 +2,13 @@ import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
+import { FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
-    const {login} = useContext(AuthContext);
+    const { login, google } = useContext(AuthContext);
 
     const navigate = useNavigate();
-    const nav = useNavigate();
+    // const nav = useNavigate();
     const location = useLocation();
 
     const from = location.state?.from?.pathname || '/';
@@ -26,7 +27,25 @@ const Login = () => {
                 toast.success('Login Successfull!')
                 form.reset();
                 setTimeout(() => {
-                    nav('/');
+                    // nav('/');
+                    navigate(from, { replace: true });
+                }, 1500)
+            })
+            .catch(err => {
+                console.log(err);
+                toast.error('SignUp Failed!');
+            })
+    }
+
+    const loginWithGoogle = ()=>{
+        google()
+            .then(res => {
+                const user = res.user;
+                console.log(user);
+                toast.success('Login Successfull!')
+                setTimeout(() => {
+                    // nav('/');
+                    navigate(from, { replace: true });
                 }, 1500)
             })
             .catch(err => {
@@ -68,7 +87,9 @@ const Login = () => {
                         </div>
 
                         <div className="form-control">
-                            <button className="btn bg-secondary ">Login</button>
+                            <button className="btn bg-secondary text-white ">Login</button>
+
+                            <button onClick={() => { loginWithGoogle ()}} className='btn bg-red-600 mt-2 text-white text-2xl'><FaGoogle></FaGoogle></button>
                         </div>
                         
 

@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Blogs from "../Pages/Blogs/Blogs";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import Main from "../Pages/Layout/Main";
 import Login from "../Pages/Login/Login";
@@ -16,6 +17,7 @@ const route = createBrowserRouter([
         {path: '/services', element: <Services></Services>},
         {path: '/blogs', element: <Blogs></Blogs>},
         { path: '/myreviews', element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>},
+        { path: '*', element: <ErrorPage></ErrorPage>},
     ]}
 ])
 
