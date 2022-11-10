@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <div data-theme="cupcake" className="navbar bg-base-100">
+        <div className="bg-secondary text-white navbar bg-base-100">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -30,7 +30,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Login</a>
+                <Link to='/login' className="btn">Login</Link>
             </div>
         </div>
     );
