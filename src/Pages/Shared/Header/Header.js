@@ -20,17 +20,18 @@ const Header = () => {
                         <li><a>Item 3</a></li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">Dream Consultancy</a>
+                <Link to='/' className="btn btn-ghost normal-case text-xl">Dream Consultancy</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
-                    <li><Link to='/'>Services</Link></li>
-                    <li><Link to='/'>Blogs</Link></li>
-                    <li><Link to='/'>My Reviews</Link></li>
+                    <li><Link to='/services'>Services</Link></li>
+                    <li><Link to='/blogs'>Blogs</Link></li>
+                    <li><Link to='/myreviews'>My Reviews</Link></li>
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='/login' className="btn">Login</Link>
+                <Link to='/login' className="btn btn-accent text-white mr-3">Login</Link>
+                <Link to='/signup' className="btn btn-accent text-white">SignUp</Link>
             </div>
         </div>
     );
