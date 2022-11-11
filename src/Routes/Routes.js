@@ -18,7 +18,7 @@ const route = createBrowserRouter([
         {path: '/services', element: <Services></Services>},
         {path: '/blogs', element: <Blogs></Blogs>},
 
-        { path: '/service/:id', element: <ServiceDetailPage></ServiceDetailPage>, loader: ({ params }) => fetch(`http://localhost:5000/service/${params.id}`)},
+        { path: '/service/:id', element: <ServiceDetailPage></ServiceDetailPage>, loader: ({ params }) => fetch(` https://dream-consultancy-server.vercel.app/service/${params.id}`)},
 
         { path: '/myreviews', element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>},
         { path: '*', element: <ErrorPage></ErrorPage>},
