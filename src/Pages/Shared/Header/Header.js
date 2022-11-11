@@ -10,7 +10,7 @@ const Header = () => {
     
     return (
         <div className="bg-secondary text-white navbar bg-base-100">
-            <ReactTooltip />
+            
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -41,9 +41,9 @@ const Header = () => {
                 {user ? 
 
                 <>
-                        
+                        <ReactTooltip />
                         <label className="btn btn-ghost btn-circle avatar">
-                            <div className='tooltip tooltip-open tooltip-bottom' data-tip={user?.email}  >
+                            <div data-tip={user?.email}  >
                                 <img className="w-10 rounded-full" src={
                                     user?.photoURL ?  user?.photoURL : 'https://www.w3schools.com/howto/img_avatar.png' 
                                 } />

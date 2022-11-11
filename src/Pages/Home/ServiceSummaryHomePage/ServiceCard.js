@@ -13,8 +13,8 @@ const ServiceCard = ({service}) => {
 
             <figure>
                 <PhotoProvider>
-                    <PhotoView src={thumbnail_url}>
-                        <img style={{ height: "240px", width: '100%' }} src={thumbnail_url} alt="Shoes" />
+                    <PhotoView  src={thumbnail_url}>
+                        <img className='cursor-pointer' style={{ height: "240px", width: '100%' }} src={thumbnail_url} alt="Shoes" />
                     </PhotoView>
                 </PhotoProvider>
             </figure>
@@ -27,10 +27,10 @@ const ServiceCard = ({service}) => {
 
                 <p className='text-xl'> <b>Price:</b> {price ? price : "N/A"} taka</p>
 
-                <p className='flex items-center text-lg'> <b>Ratings: &nbsp;</b> {rating.number ? rating.number : "N/A"} <FaStar className='display: inline text-warning' /></p>
+                <p className='flex items-center text-lg'> <b>Ratings: &nbsp;</b> {rating ? rating : "N/A"} <FaStar className='display: inline text-warning' /></p>
 
                 <div className="card-actions justify-end">
-                    <Link to= {`/services/${_id}`}><button className="btn btn-warning">View Details</button></Link>
+                    <Link to= {`/service/${_id}`}><button className="btn btn-warning">View Details</button></Link>
                 </div>
             </div>
         </div>
