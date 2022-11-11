@@ -3,7 +3,7 @@ import React from 'react';
 const ErrorPage = () => {
     return (
         <div>
-            <h2>404 Not Found</h2>
+            <img className='mx-auto my-20' src="https://i.ibb.co/LNnZz8B/404-banners.jpg" alt="" />
         </div>
     );
 };

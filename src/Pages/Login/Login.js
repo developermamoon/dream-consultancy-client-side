@@ -8,7 +8,6 @@ const Login = () => {
     const { login, google } = useContext(AuthContext);
 
     const navigate = useNavigate();
-    // const nav = useNavigate();
     const location = useLocation();
 
     const from = location.state?.from?.pathname || '/';
@@ -27,7 +26,6 @@ const Login = () => {
                 toast.success('Login Successfull!')
                 form.reset();
                 setTimeout(() => {
-                    // nav('/');
                     navigate(from, { replace: true });
                 }, 1500)
             })
@@ -46,7 +44,7 @@ const Login = () => {
                 setTimeout(() => {
                     // nav('/');
                     navigate(from, { replace: true });
-                }, 1500)
+                }, 10000)
             })
             .catch(err => {
                 console.log(err);

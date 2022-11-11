@@ -5,7 +5,7 @@ import route from './Routes/Routes';
 
 function App() {
   return (
-    <div data-theme="fantasy" className="App">
+    <div data-theme="fantasy" className="">
       <RouterProvider router = {route}></RouterProvider>
       
     </div>
