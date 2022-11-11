@@ -13,7 +13,7 @@ const ServiceCard = ({service}) => {
                 <p>{
                     details.length > 100 ? `${details.substring(0, 100)}...` : details}</p>
                 <div className="card-actions justify-end">
-                    <Link to= {`/services/${_id}`}><button className="btn btn-primary">View Details</button></Link>
+                    <Link to= {`/services/${_id}`}><button className="btn btn-warning">View Details</button></Link>
                 </div>
             </div>
         </div>

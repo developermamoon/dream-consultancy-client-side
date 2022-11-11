@@ -1,10 +1,10 @@
 import React from 'react';
-import ServiceSummary from '../Home/ServiceSummary/ServiceSummary';
+import ServiceSummaryServicePage from './ServiceSummaryServicePage';
 
 const Services = () => {
     return (
         <div>
-            <ServiceSummary></ServiceSummary>
+            <ServiceSummaryServicePage></ServiceSummaryServicePage>
         </div>
     );
 };

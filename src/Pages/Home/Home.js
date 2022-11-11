@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Banner from './Banner';
-import ServiceSummary from './ServiceSummary/ServiceSummary';
+import ServiceSummaryHomePage from './ServiceSummaryHomePage/ServiceSummaryHomePage';
 
 const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <ServiceSummary></ServiceSummary>
+            <ServiceSummaryHomePage></ServiceSummaryHomePage>
 
             <div className='text-center my-5'>
-                <Link to='/services'><button className='btn'>See All</button></Link>
+                <Link to='/services'><button className='btn btn-warning'>See All</button></Link>
             </div>
         </div>
     );
